@@ -18,7 +18,7 @@
                 @forelse ($projects as $project)
                     <tr>
                         <th scope="row">{{ $project->id }}</th>
-                        <td>{{ $project->title }}</td>
+                        <td><a href='{{ route('admin.projects.show', $project) }}'>{{ $project->title }}</a></td>
                         <td>{{ $project->slug }}</td>
                         <td>{{ $project->created_at }}</td>
                         <td>{{ $project->updated_at }}</td>
