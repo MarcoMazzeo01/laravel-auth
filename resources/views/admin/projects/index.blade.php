@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container pb-2">
-        <a href='' class='btn btn-outline-success'>Nuovo Progetto</a>
+        <a href='{{ route('admin.projects.create') }}' class='btn btn-outline-success'>Nuovo Progetto</a>
         <hr>
 
         <table class="table">
