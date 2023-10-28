@@ -32,8 +32,15 @@
                         <td>{{ $project->created_at }}</td>
                         <td>{{ $project->updated_at }}</td>
                         <td>
-                            <a href="" class='btn btn-danger'><i class="fa-solid fa-trash"></i></a>
-                            <a href="" class='btn btn-warning'><i class="fa-solid fa-pen"></i></a>
+                            {{-- edit --}}
+                            <a href="{{ route('admin.projects.edit', $project) }}" class='btn btn-warning'>
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+
+                            {{-- delete --}}
+                            <a href="" class='btn btn-danger'>
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
                         </td>
                     </tr>
                 @empty
