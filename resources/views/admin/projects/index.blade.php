@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endsection
+
 @section('content')
-    <div class="container">
+    <div class="container pb-2">
+        <a href='' class='btn btn-outline-success'>Nuovo Progetto</a>
+        <hr>
 
         <table class="table">
             <thead>
@@ -11,6 +19,7 @@
                     <th scope="col">Slug</th>
                     <th scope="col">Creato</th>
                     <th scope="col">Aggiornato</th>
+                    <th>Opzioni</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +31,10 @@
                         <td>{{ $project->slug }}</td>
                         <td>{{ $project->created_at }}</td>
                         <td>{{ $project->updated_at }}</td>
-
+                        <td>
+                            <a href="" class='btn btn-danger'><i class="fa-solid fa-trash"></i></a>
+                            <a href="" class='btn btn-warning'><i class="fa-solid fa-pen"></i></a>
+                        </td>
                     </tr>
                 @empty
                     <tr colspan="6"><i>Nessun progetto da mostrare.</i></tr>
