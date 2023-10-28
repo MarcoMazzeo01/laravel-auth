@@ -38,11 +38,40 @@
                             </a>
 
                             {{-- delete --}}
-                            <a href="" class='btn btn-danger'>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#deleteProject_{{ $project->id }}">
                                 <i class="fa-solid fa-trash"></i>
-                            </a>
+                            </button>
+
                         </td>
                     </tr>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteProject_{{ $project->id }}" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina Progetto</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Sei sicur* di voler eliminare il progetto "{{ $project->title }}"?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+
+                                    <form method="POST" action="{{ route('admin.projects.destroy', $project) }}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Elimina</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 @empty
                     <tr colspan="6"><i>Nessun progetto da mostrare.</i></tr>
                 @endforelse
